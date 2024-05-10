@@ -1,9 +1,8 @@
-
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import 'firebase/firestore'; // Import Firestore if you're using Firestore
-import { PRODUCTS } from './productsData';
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBOAnkuwutxqBskofTVx_77E480NxN4AFE",
   authDomain: "it-sysarch32-store-maranguit.firebaseapp.com",
@@ -18,15 +17,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const addProductsToFirestore = async () => {
-    try {
-      const productsCollection = firestore.collection('products');
-      await Promise.all(PRODUCTS.map(product => productsCollection.doc(product.id.toString()).set(product)));
-      console.log('Products added to Firestore successfully.');
-    } catch (error) {
-      console.error('Error adding products to Firestore:', error);
-    }
-  };
-  
-  // Call the function to add products to Firestore
-  addProductsToFirestore();
+// Export the initialized app instance
+export default app;

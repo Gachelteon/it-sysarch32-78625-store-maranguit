@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
 }
+.cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .cartItem {
   width: 700px;
